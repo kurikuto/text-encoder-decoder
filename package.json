@@ -1,0 +1,36 @@
+{
+  "name": "text-encoder-decoder",
+  "version": "0.1.0",
+  "description": "Rust + WebAssembly + TypeScript テキストエンコーダ・デコーダ（初学者向け）",
+  "type": "module",
+  "scripts": {
+    "build:wasm": "wasm-pack build --target web --release",
+    "build:ts": "tsc",
+    "build": "npm run build:wasm && npm run build:ts",
+    "dev": "tsc --watch",
+    "serve": "python -m http.server 8080 --directory www",
+    "start": "npm run build && npm run serve",
+    "test": "cargo test",
+    "clean": "cargo clean && rimraf pkg www/dist"
+  },
+  "keywords": [
+    "rust",
+    "webassembly",
+    "wasm",
+    "typescript",
+    "encoder",
+    "decoder",
+    "base64"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "typescript": "^5.7.2",
+    "rimraf": "^6.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

@@ -1,0 +1,49 @@
+# .gitignore for Rust + WASM + TypeScript project
+
+# Rust
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# WASM build output
+/pkg/
+/wasm-pack.log
+
+# TypeScript
+www/dist/
+*.tsbuildinfo
+
+# Node
+node_modules/
+package-lock.json
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build artifacts
+*.wasm
+*.js.map
+
+# Backup files
+*.bak
+*.backup

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webテキストエンコーダ・デコーダ | Rust + WASM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🦀 Webテキストエンコーダ・デコーダ</h1>
+            <p class="subtitle">Rust + WebAssemblyで高速・安全な変換処理</p>
+        </header>
+
+        <main>
+            <!-- 入力セクション -->
+            <section class="input-section">
+                <h2>📝 入力テキスト</h2>
+                <textarea 
+                    id="inputText" 
+                    placeholder="エンコード・デコードしたいテキストを入力してください..."
+                    rows="6"
+                ></textarea>
+            </section>
+
+            <!-- 変換方式選択 -->
+            <section class="controls">
+                <div class="control-group">
+                    <label for="encodingType">🔧 変換方式</label>
+                    <select id="encodingType">
+                        <option value="base64">Base64</option>
+                        <option value="url">URL エンコード</option>
+                        <option value="hex">HEX (16進数)</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button id="encodeBtn" class="btn btn-primary">
+                        ⬆️ エンコード
+                    </button>
+                    <button id="decodeBtn" class="btn btn-secondary">
+                        ⬇️ デコード
+                    </button>
+                    <button id="testBtn" class="btn btn-test">
+                        🔄 可逆性テスト
+                    </button>
+                    <button id="clearBtn" class="btn btn-clear">
+                        🗑️ クリア
+                    </button>
+                </div>
+            </section>
+
+            <!-- 結果表示セクション -->
+            <section class="output-section">
+                <h2>✨ 変換結果</h2>
+                <div id="outputArea" class="output-box">
+                    <p class="placeholder">変換結果がここに表示されます</p>
+                </div>
+            </section>
+
+            <!-- エラー表示エリア -->
+            <div id="errorArea" class="error-box" style="display: none;"></div>
+
+            <!-- 使い方説明 -->
+            <section class="info-section">
+                <h2>📖 使い方</h2>
+                <div class="info-content">
+                    <div class="info-item">
+                        <h3>Base64</h3>
+                        <p>バイナリデータをテキストで表現する標準的な方式。メール添付ファイルやAPIでよく使用されます。</p>
+                        <code>例: "Hello" → "SGVsbG8="</code>
+                    </div>
+                    <div class="info-item">
+                        <h3>URL エンコード</h3>
+                        <p>URLに使用できない文字を安全な形式に変換。日本語URLやクエリパラメータで必須です。</p>
+                        <code>例: "こんにちは" → "%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF"</code>
+                    </div>
+                    <div class="info-item">
+                        <h3>HEX (16進数)</h3>
+                        <p>バイト列を16進数で表現。デバッグや暗号化処理の前後でよく使用されます。</p>
+                        <code>例: "Test" → "54657374"</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 実務応用例 -->
+            <section class="use-cases">
+                <h2>💼 実務での活用例</h2>
+                <ul>
+                    <li><strong>API開発:</strong> Base64でトークンやバイナリデータをやり取り</li>
+                    <li><strong>Webフォーム:</strong> URLエンコードで特殊文字を安全に送信</li>
+                    <li><strong>デバッグ:</strong> HEXでバイト列を可視化・検証</li>
+                    <li><strong>データ保存:</strong> エンコードしてDBに格納、取り出し時にデコード</li>
+                    <li><strong>メール処理:</strong> Content-Transfer-Encodingの確認・変換</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                <strong>技術スタック:</strong> Rust + WebAssembly (wasm-bindgen) | 
+                <strong>ビルド:</strong> wasm-pack | 
+                <strong>学習目的:</strong> 安全で高速なWeb処理
+            </p>
+        </footer>
+    </div>
+
+    <!-- WASM読み込みとTypeScriptロジック（トランスパイル後のJavaScript） -->
+    <script type="module" src="dist/app.js"></script>
+</body>
+</html>

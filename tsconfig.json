@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    /* 🎯 基本設定 */
+    "target": "ES2022",                    // 出力するJavaScriptのバージョン
+    "module": "ES2022",                    // モジュールシステム
+    "lib": ["ES2022", "DOM", "DOM.Iterable"], // 使用可能なライブラリ
+    "moduleResolution": "bundler",         // モジュール解決方法
+    
+    /* 📂 出力設定 */
+    "outDir": "./www/dist",                // コンパイル後のファイル出力先
+    "rootDir": "./www",                    // ソースファイルのルート
+    "sourceMap": true,                     // デバッグ用のソースマップを生成
+    
+    /* ✅ 型チェック（初学者向けに厳格設定） */
+    "strict": true,                        // すべての厳密な型チェックを有効化
+    "noUnusedLocals": true,                // 未使用のローカル変数を検出
+    "noUnusedParameters": true,            // 未使用のパラメータを検出
+    "noImplicitReturns": true,             // 戻り値の型が一貫しているかチェック
+    
+    /* 🔧 その他 */
+    "esModuleInterop": true,               // CommonJSモジュールとの互換性
+    "skipLibCheck": true,                  // 型定義ファイルのチェックをスキップ
+    "forceConsistentCasingInFileNames": true // ファイル名の大文字小文字を厳密に
+  },
+  "include": [
+    "www/**/*.ts"                          // コンパイル対象
+  ],
+  "exclude": [
+    "node_modules",                        // 除外するフォルダ
+    "target",
+    "pkg",
+    "www/dist"
+  ]
+}
